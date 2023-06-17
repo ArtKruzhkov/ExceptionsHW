@@ -10,9 +10,12 @@ public class HW02 {
         //Ввод текста вместо числа не должно приводить к падению приложения, вместо этого, необходимо повторно запросить у пользователя 
         //ввод данных.
         //(Сам метод реализован внизу кода)
-        printNumber();
+        // printNumber();
 
-
+        //Разработайте программу, которая выбросит Exception, когда пользователь вводит пустую строку. 
+        //Пользователю должно показаться сообщение, что пустые строки вводить нельзя.
+        //(Сам метод реализован внизу кода)
+        enterSomething();
 
 
 
@@ -66,6 +69,18 @@ public class HW02 {
         } catch (InputMismatchException e) {
             System.out.println("YOU ENTERED NOT FLOAT NUMBER! TRY AGAIN!");
             printNumber();
+        }
+    }
+
+    public static void enterSomething() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter something");
+        String smt = in.nextLine();
+        in.close();
+        if(smt == "") {
+            throw new RuntimeException("You entered EMPTY string. DO NOT ENTER EMPTY STRING!");
+        } else {
+            System.out.printf("You entered: %s\n", smt);
         }
     }
 }
