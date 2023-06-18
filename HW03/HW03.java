@@ -16,7 +16,7 @@ public class HW03 {
             makeRecord();
             System.out.println("success");
         } catch (FileSystemException e) {
-            System.out.println(e.getMessage());
+            System.out.println(e.getStackTrace());
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -24,7 +24,7 @@ public class HW03 {
 
     public static void makeRecord() throws Exception{
 
-        System.out.println("Enter surname, name, fathername, phone number (without spaces), through a space");
+        System.out.println("Enter surname, name, fathername, phone number (without spaces), through a space.");
 
         String text;
         try {
@@ -40,8 +40,29 @@ public class HW03 {
         }
 
         String surname = array[0];
+        try {
+            int i = Integer.parseInt(surname);
+            System.out.printf("Do not enter numbers in surname! You entered %d in surname!\n", i);
+            makeRecord();
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
         String name = array[1];
+        try {
+            int i2 = Integer.parseInt(name);
+            System.out.printf("Do not enter numbers in name! You entered %d in name!\n", i2);
+            makeRecord();
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
         String fathername = array[2];
+        try {
+            int i3 = Integer.parseInt(fathername);
+            System.out.printf("Do not enter numbers in fathername! You entered %d in fathername!\n", i3);
+            makeRecord();
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
 
         double phone;
         try {
